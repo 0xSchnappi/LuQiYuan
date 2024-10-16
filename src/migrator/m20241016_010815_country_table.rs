@@ -2,7 +2,7 @@
  * @Author: 0xSchnappi 952768182@qq.com
  * @Date: 2024-10-16 09:08:15
  * @LastEditors: 0xSchnappi 952768182@qq.com
- * @LastEditTime: 2024-10-16 10:19:18
+ * @LastEditTime: 2024-10-16 10:46:44
  * @FilePath: /luqiyuan/src/migrator/m20241016_010815_country_table.rs
  * @Description: 国家数据库表
  *
@@ -16,7 +16,6 @@ pub struct Migration;
 #[async_trait::async_trait]
 impl MigrationTrait for Migration {
     async fn up(&self, manager: &SchemaManager) -> Result<(), DbErr> {
-
         manager
             .create_table(
                 Table::create()
@@ -37,7 +36,6 @@ impl MigrationTrait for Migration {
     }
 
     async fn down(&self, manager: &SchemaManager) -> Result<(), DbErr> {
-
         manager
             .drop_table(Table::drop().table(Country::Table).to_owned())
             .await
@@ -45,7 +43,7 @@ impl MigrationTrait for Migration {
 }
 
 #[derive(DeriveIden)]
-enum Country {
+pub enum Country {
     Table,
     Id,
     Name,

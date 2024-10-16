@@ -3,8 +3,8 @@ use std::env;
 use migrator::Migrator;
 use sea_orm_migration::MigratorTrait;
 
-mod migrator;
 mod db;
+mod migrator;
 
 #[macro_use]
 extern crate rocket;

@@ -11,6 +11,7 @@
 pub use sea_orm_migration::prelude::*;
 
 mod m20241016_010815_country_table;
+mod m20241016_022727_country_real_interest_rate_table;
 
 pub struct Migrator;
 
@@ -19,6 +20,7 @@ impl MigratorTrait for Migrator {
     fn migrations() -> Vec<Box<dyn MigrationTrait>> {
         vec![
             Box::new(m20241016_010815_country_table::Migration),
+            Box::new(m20241016_022727_country_real_interest_rate_table::Migration),
         ]
     }
 }
